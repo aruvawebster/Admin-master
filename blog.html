@@ -3,184 +3,311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog & Insights — Aruva Webster</title>
+  <title>Blog — Aruva Webster | Website Development Agency</title>
   <meta name="description" content="Explore insights, web performance benchmarks, WordPress architecture, and digital growth articles by Aruva Webster. Write and publish your own entries.">
-  <meta property="og:title" content="Blog & Insights — Aruva Webster">
-  <meta property="og:description" content="Explore insights, web performance benchmarks, WordPress architecture, and digital growth articles by Aruva Webster.">
+  <meta property="og:title" content="Blog — Aruva Webster | Website Development Agency">
+  <meta property="og:description" content="Explore insights, web performance benchmarks, WordPress architecture, and digital growth articles by Aruva Webster. Write and publish your own entries.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicon -->
+  <!-- Favicon: Bespoke SVG Studio Emblem -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='44' y2='44' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%237C5CFF'/%3E%3Cstop offset='50%25' stop-color='%234F46E5'/%3E%3Cstop offset='100%25' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='12' fill='url(%23g)'/%3E%3Cpath d='M12 28L18 14L22 22M22 22L26 14L32 28' stroke='%23FFFFFF' stroke-width='2.75' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M16 23.5H28' stroke='%2322D3EE' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='22' r='2.25' fill='%2322D3EE'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts & Font Awesome -->
+  <!-- Google Fonts: Poppins (Headings) & Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
+    /* ==========================================================================
+       BRAND COLORS & DESIGN SYSTEM (DYNAMIC CSS VARIABLES)
+       Easily change brand colors, glow intensities, and typography here.
+       ========================================================================== */
     :root {
+      /* Theme Name */
       --color-scheme: dark;
-      --bg-primary: #0A0E17;
-      --bg-secondary: #111726;
-      --bg-card: rgba(17, 23, 38, 0.75);
-      --bg-card-hover: rgba(23, 32, 54, 0.88);
-      --bg-glass-nav: rgba(10, 14, 23, 0.82);
-      --bg-glass-nav-scrolled: rgba(10, 14, 23, 0.94);
-      --bg-drawer: rgba(10, 14, 23, 0.98);
-      --bg-footer: #060911;
 
-      --accent-violet: #7C5CFF;
-      --accent-cyan: #22D3EE;
+      /* Backgrounds */
+      --bg-primary: #0B0F1A;           /* Main dark canvas */
+      --bg-secondary: #111827;         /* Slightly lighter container */
+      --bg-card: rgba(17, 24, 39, 0.75); /* Glassmorphic card surface */
+      --bg-card-hover: rgba(24, 34, 53, 0.9);
+      --bg-glass-nav: rgba(11, 15, 26, 0.85);
+      --bg-glass-nav-scrolled: rgba(11, 15, 26, 0.94);
+      --bg-glass-header: rgba(17, 24, 39, 0.65);
+      --bg-input: rgba(15, 23, 42, 0.85);
+
+      /* Accents */
+      --accent-violet: #7C5CFF;        /* Electric Violet */
+      --accent-cyan: #22D3EE;          /* Cyan */
       --accent-gradient: linear-gradient(135deg, #7C5CFF 0%, #22D3EE 100%);
-      --accent-glow: rgba(124, 92, 255, 0.4);
+      --accent-gradient-hover: linear-gradient(135deg, #8E72FF 0%, #38BDF8 100%);
+      --accent-glow: rgba(124, 92, 255, 0.35);
       --cyan-glow: rgba(34, 211, 238, 0.35);
 
+      /* Text Colors */
       --text-white: #FFFFFF;
-      --text-body: #94A3B8;
-      --text-muted: #64748B;
-      --text-highlight: #F1F5F9;
+      --text-body: #94A3B8;           /* Slate 400 for readable secondary copy */
+      --text-muted: #64748B;          /* Slate 500 for captions & meta */
 
+      /* Borders */
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(124, 92, 255, 0.35);
+      --border-accent: rgba(124, 92, 255, 0.3);
+      --border-hover: rgba(34, 211, 238, 0.5);
 
+      /* Typography */
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* UI Radii & Transitions */
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-xl: 28px;
       --radius-full: 9999px;
 
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
-      --input-bg: rgba(255, 255, 255, 0.04);
+      /* Component-level theme tokens */
+      --pill-bg: rgba(124, 92, 255, 0.12);
+      --tech-pill-bg: rgba(255, 255, 255, 0.04);
+      --chip-bg: rgba(255, 255, 255, 0.06);
+      --stat-item-bg: rgba(255, 255, 255, 0.03);
+      --input-bg: rgba(15, 23, 42, 0.85);
       --input-text: #FFFFFF;
-      --toggle-track-bg: rgba(255, 255, 255, 0.08);
-      --modal-box-bg: #111726;
-      --metric-bg: rgba(255, 255, 255, 0.03);
+      --modal-bg: rgba(15, 20, 32, 0.98);
+      --footer-bg: #070A12;
+      --footer-bottom-bg: #05070D;
     }
 
+    /* High-contrast Light Mode Theme Variables */
     [data-theme="light"] {
       --color-scheme: light;
       --bg-primary: #F8FAFC;
-      --bg-secondary: #FFFFFF;
-      --bg-card: rgba(255, 255, 255, 0.95);
-      --bg-card-hover: #FFFFFF;
-      --bg-glass-nav: rgba(255, 255, 255, 0.88);
-      --bg-glass-nav-scrolled: rgba(255, 255, 255, 0.97);
-      --bg-drawer: rgba(255, 255, 255, 0.98);
-      --bg-footer: #F1F5F9;
+      --bg-secondary: #EEF2F6;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-card-hover: rgba(255, 255, 255, 1);
+      --bg-glass-nav: rgba(248, 250, 252, 0.88);
+      --bg-glass-nav-scrolled: rgba(255, 255, 255, 0.96);
+      --bg-glass-header: rgba(255, 255, 255, 0.85);
+      --bg-input: #FFFFFF;
 
-      --accent-violet: #6342E8;
+      --accent-violet: #633BF3;
       --accent-cyan: #0284C7;
-      --accent-gradient: linear-gradient(135deg, #6342E8 0%, #0284C7 100%);
-      --accent-glow: rgba(99, 66, 232, 0.22);
+      --accent-gradient: linear-gradient(135deg, #633BF3 0%, #0284C7 100%);
+      --accent-gradient-hover: linear-gradient(135deg, #5329E0 0%, #0369A1 100%);
+      --accent-glow: rgba(99, 59, 243, 0.22);
       --cyan-glow: rgba(2, 132, 199, 0.22);
 
       --text-white: #0F172A;
       --text-body: #334155;
       --text-muted: #64748B;
-      --text-highlight: #0F172A;
 
       --border-subtle: rgba(15, 23, 42, 0.12);
-      --border-accent: rgba(99, 66, 232, 0.45);
+      --border-accent: rgba(99, 59, 243, 0.35);
+      --border-hover: rgba(2, 132, 199, 0.6);
 
+      --pill-bg: rgba(99, 59, 243, 0.1);
+      --tech-pill-bg: rgba(15, 23, 42, 0.05);
+      --chip-bg: rgba(15, 23, 42, 0.06);
+      --stat-item-bg: rgba(15, 23, 42, 0.04);
       --input-bg: #FFFFFF;
       --input-text: #0F172A;
-      --toggle-track-bg: rgba(15, 23, 42, 0.08);
-      --modal-box-bg: #FFFFFF;
-      --metric-bg: rgba(15, 23, 42, 0.04);
+      --modal-bg: #FFFFFF;
+      --footer-bg: #E2E8F0;
+      --footer-bottom-bg: #CBD5E1;
     }
 
+    /* Reset & Base Styles */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    body {
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
       background-color: var(--bg-primary);
       color: var(--text-body);
       font-family: var(--font-body);
-      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      line-height: 1.65;
+      position: relative;
+      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
     }
+
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
       color: var(--text-white);
       line-height: 1.25;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      transition: color var(--transition-normal);
     }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
     }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .container {
       width: 100%;
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
+
+    /* Gradient Text Utility */
     .gradient-text {
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
     }
+
+    /* Badge Pill Component */
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.15rem;
+      border-radius: var(--radius-full);
+      background: var(--pill-bg);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.65rem;
-      padding: 0.75rem 1.6rem;
+      padding: 0.85rem 1.9rem;
       border-radius: var(--radius-full);
-      font-size: 0.92rem;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
       font-weight: 600;
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
-      transition: all 0.25s ease;
-      white-space: nowrap;
+      text-decoration: none;
     }
+
     .btn-primary {
       background: var(--accent-gradient);
       color: #FFFFFF;
-      box-shadow: 0 4px 18px var(--accent-glow);
+      box-shadow: 0 4px 20px var(--accent-glow);
       border: 1px solid rgba(255, 255, 255, 0.15);
     }
+
     .btn-primary:hover {
+      background: var(--accent-gradient-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px var(--accent-glow);
+      box-shadow: 0 8px 30px var(--accent-glow);
     }
+
     .btn-secondary {
       background: var(--bg-card);
       color: var(--text-white);
       border: 1px solid var(--border-subtle);
       backdrop-filter: blur(12px);
     }
+
     .btn-secondary:hover {
-      border-color: var(--accent-cyan);
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      color: var(--accent-cyan);
       transform: translateY(-2px);
-    }
-    .btn-small {
-      padding: 0.5rem 1.1rem;
-      font-size: 0.84rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
-    /* Ambient */
+    .btn-small {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--accent-gradient);
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    /* Ambient Background Glows */
     .ambient-glow {
       position: absolute;
-      width: 600px;
-      height: 600px;
+      width: 650px;
+      height: 650px;
       border-radius: 50%;
       filter: blur(140px);
       pointer-events: none;
-      opacity: 0.2;
+      z-index: 0;
+      opacity: 0.22;
+      transition: opacity var(--transition-slow);
     }
 
-    /* Top Bar */
+    .glow-violet {
+      background: var(--accent-violet);
+    }
+
+    .glow-cyan {
+      background: var(--accent-cyan);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    /* ==========================================================================
+       HEADER & NAVIGATION - FLOATING GLASS ARCHITECTURE
+       ========================================================================== */
     header.site-header {
       position: fixed;
       top: 0;
@@ -188,24 +315,38 @@
       right: 0;
       z-index: 999;
       padding: 1.1rem 0;
+      transition: padding var(--transition-normal);
       pointer-events: none;
-      transition: padding 0.3s ease;
     }
+
     header.site-header.scrolled {
       padding: 0.6rem 0;
     }
+
     .nav-container {
       pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
-      padding: 0.6rem 1.5rem;
+      gap: 1.25rem;
+      padding: 0.6rem 1.35rem;
       border-radius: var(--radius-full);
       background: var(--bg-glass-nav);
       backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
+      transition: all var(--transition-normal);
     }
+
+    header.site-header.scrolled .nav-container {
+      padding: 0.45rem 1.25rem;
+      background: var(--bg-glass-nav-scrolled);
+      border-color: var(--border-accent);
+      box-shadow: 0 14px 40px -8px rgba(0, 0, 0, 0.5), 0 0 22px rgba(124, 92, 255, 0.18);
+    }
+
+    /* Brand Logo */
     .brand-logo {
       display: inline-flex;
       align-items: center;
@@ -215,131 +356,602 @@
       font-size: 1.35rem;
       color: var(--text-white);
       letter-spacing: -0.03em;
+      text-decoration: none;
+      transition: transform var(--transition-fast);
+      flex-shrink: 0;
+      user-select: none;
     }
-    .brand-accent {
-      background: var(--accent-gradient);
+
+    .brand-logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-logo:focus-visible {
+      outline: 2px solid var(--accent-violet);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Logo Icon Mark: Premium Hex-Shield with dynamic glowing neon badge */
+    .logo-mark {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      perspective: 800px;
+    }
+
+    .logo-mark-glow {
+      position: absolute;
+      inset: -3px;
+      background: radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.55), rgba(34, 211, 238, 0.35) 60%, transparent 75%);
+      filter: blur(8px);
+      border-radius: 14px;
+      opacity: 0.75;
+      transition: opacity var(--transition-normal), transform var(--transition-normal);
+      pointer-events: none;
+    }
+
+    .brand-logo:hover .logo-mark-glow {
+      opacity: 1;
+      transform: scale(1.15);
+      filter: blur(12px);
+    }
+
+    .logo-mark-svg {
+      width: 42px;
+      height: 42px;
+      filter: drop-shadow(0 4px 12px rgba(124, 92, 255, 0.35));
+      transition: transform var(--transition-normal);
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-logo:hover .logo-mark-svg {
+      transform: scale(1.06) rotate(3deg);
+      filter: drop-shadow(0 6px 18px rgba(124, 92, 255, 0.55)) drop-shadow(0 0 10px rgba(34, 211, 238, 0.45));
+    }
+
+    .logo-mark-svg path,
+    .logo-mark-svg rect {
+      transition: all var(--transition-fast);
+    }
+
+    /* Brand Typography */
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .brand-name {
+      display: inline-flex;
+      align-items: baseline;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+
+    .brand-name .brand-primary {
+      letter-spacing: -0.04em;
+    }
+
+    .brand-name .brand-accent {
+      background: linear-gradient(135deg, #A78BFA 0%, #22D3EE 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-left: 2px;
+      font-weight: 900;
     }
+
+    .brand-tagline {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-top: 1px;
+      transition: color var(--transition-fast);
+    }
+
+    .brand-logo:hover .brand-tagline {
+      color: var(--accent-cyan);
+    }
+
+    /* Studio Availability Pulse Indicator */
+    .brand-status-indicator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 9px;
+      height: 9px;
+      margin-left: 0.15rem;
+      margin-top: -2px;
+    }
+
+    .status-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      position: relative;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    .status-pulse-dot::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.45);
+      animation: statusPulseRing 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    @keyframes statusPulseRing {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(2.2); opacity: 0; }
+    }
+
+    /* Desktop Navigation Links */
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.25rem;
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
+
+    .nav-links li {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links a {
       color: var(--text-body);
       font-weight: 500;
       font-size: 0.92rem;
       padding: 0.45rem 0.85rem;
       border-radius: var(--radius-full);
-      transition: all 0.2s ease;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
-    .nav-links a:hover,
+
+    .nav-links a:hover {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    [data-theme="light"] .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.06);
+      color: var(--text-white);
+    }
+
     .nav-links a.active {
       color: var(--text-white);
-      background: rgba(124, 92, 255, 0.16);
+      font-weight: 600;
+      background: rgba(124, 92, 255, 0.14);
+      box-shadow: inset 0 0 0 1px rgba(124, 92, 255, 0.3);
     }
+
+    [data-theme="light"] .nav-links a.active {
+      color: var(--accent-violet);
+      background: rgba(99, 66, 232, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(99, 66, 232, 0.25);
+    }
+
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .header-cta-btn {
+      padding: 0.58rem 1.35rem;
+      font-size: 0.88rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 18px -2px var(--accent-glow);
+    }
+
+    .header-cta-btn .cta-arrow {
+      transition: transform var(--transition-fast);
+    }
+
+    .header-cta-btn:hover .cta-arrow {
+      transform: translateX(3px);
+    }
+
+    /* Theme Toggle Switch */
     .theme-toggle-btn {
       position: relative;
-      width: 52px;
-      height: 28px;
+      width: 54px;
+      height: 30px;
       border-radius: var(--radius-full);
-      background: var(--toggle-track-bg);
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       padding: 2px;
+      transition: all var(--transition-normal);
+      outline: none;
+      flex-shrink: 0;
+      user-select: none;
     }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 14px var(--cyan-glow);
+      transform: scale(1.04);
+    }
+
+    .theme-toggle-btn:focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 2px;
+    }
+
+    .theme-toggle-track {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+      position: relative;
+      pointer-events: none;
+    }
+
+    .track-icon {
+      font-size: 0.7rem;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      z-index: 1;
+    }
+
+    .track-icon.moon {
+      color: #A78BFA;
+    }
+
+    .track-icon.sun {
+      color: #F59E0B;
+    }
+
     .theme-toggle-thumb {
       position: absolute;
       top: 2px;
       left: 2px;
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--accent-gradient);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFFFFF;
-      font-size: 0.68rem;
-      transition: transform 0.35s ease;
+      font-size: 0.7rem;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background var(--transition-normal), box-shadow var(--transition-normal);
+      z-index: 2;
     }
+
+    /* Light mode active state for the toggle */
     [data-theme="light"] .theme-toggle-thumb {
       transform: translateX(24px);
       background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.45);
     }
 
-    /* Blog Hero */
-    .blog-hero {
-      padding: 9rem 0 3.5rem;
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      padding: 0;
+      transition: all var(--transition-fast);
+      outline: none;
+      flex-shrink: 0;
+    }
+
+    .menu-toggle:hover {
+      background: rgba(124, 92, 255, 0.15);
+      border-color: var(--accent-violet);
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 2px;
+    }
+
+    .menu-bar {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--text-white);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s, background-color 0.2s;
+      transform-origin: center;
+    }
+
+    .menu-toggle.is-active .menu-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.is-active .menu-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .menu-toggle.is-active .menu-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 1rem;
+      right: 1rem;
+      background: var(--bg-drawer);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.25rem;
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      transform: translateY(-15px) scale(0.98);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 998;
+    }
+
+    .mobile-drawer.open {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-highlight);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .mobile-nav-link-content {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .mobile-nav-link i.link-icon {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      width: 20px;
       text-align: center;
+      transition: color var(--transition-fast);
+    }
+
+    .mobile-nav-link i.arrow-icon {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link:focus {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-white);
+    }
+
+    .mobile-nav-link:hover i.link-icon,
+    .mobile-nav-link:focus i.link-icon {
+      color: var(--accent-cyan);
+    }
+
+    .mobile-nav-link:hover i.arrow-icon,
+    .mobile-nav-link:focus i.arrow-icon {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    [data-theme="light"] .mobile-nav-link:hover,
+    [data-theme="light"] .mobile-nav-link:focus {
+      background: rgba(15, 23, 42, 0.05);
+    }
+
+    .mobile-theme-item {
+      list-style: none;
+      width: 100%;
+      margin: 0.35rem 0;
+    }
+
+    .mobile-theme-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+    }
+
+    [data-theme="light"] .mobile-theme-box {
+      background: rgba(15, 23, 42, 0.04);
+    }
+
+    .mobile-drawer-cta {
+      margin-top: 0.5rem;
+      list-style: none;
+    }
+
+    .mobile-drawer-cta .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .mobile-drawer-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .mobile-drawer-contact:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* ==========================================================================
+       BLOG HERO SECTION
+       ========================================================================== */
+    .blog-hero {
+      padding: 5rem 0 3.5rem;
       position: relative;
+      text-align: center;
     }
+
+    .blog-hero-content {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
     .blog-hero-title {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      margin-bottom: 1rem;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.025em;
     }
+
     .blog-hero-subtitle {
-      font-size: 1.15rem;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
       color: var(--text-body);
-      max-width: 650px;
-      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
     }
+
+    /* Quick Stats Bar */
     .blog-stats-bar {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      max-width: 720px;
-      margin: 0 auto;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin: 2.5rem 0 1rem;
+      padding: 1.5rem;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-xl);
-      padding: 1.5rem;
       backdrop-filter: blur(12px);
     }
-    .blog-stat-val {
-      font-size: 1.75rem;
+
+    .blog-stat-item {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .blog-stat-num {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
       font-weight: 800;
       color: var(--text-white);
-      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .blog-stat-lbl {
+
+    .blog-stat-label {
       font-size: 0.8rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      margin-top: 0.2rem;
     }
 
-    /* Controls */
+    /* ==========================================================================
+       BLOG CONTROLS & FILTER BAR
+       ========================================================================== */
+    .blog-controls-section {
+      padding: 1rem 0 3.5rem;
+    }
+
     .blog-action-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1.2rem;
       flex-wrap: wrap;
-      margin: 3rem 0;
+      margin-bottom: 2.5rem;
       background: var(--bg-card);
       padding: 1.25rem 1.5rem;
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-subtle);
       backdrop-filter: blur(12px);
     }
+
     .blog-search-box {
       position: relative;
       flex: 1;
       min-width: 260px;
     }
+
     .blog-search-box i {
       position: absolute;
       left: 1.1rem;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-muted);
+      font-size: 0.95rem;
     }
+
     .blog-search-input {
       width: 100%;
       padding: 0.75rem 1.2rem 0.75rem 2.8rem;
@@ -349,36 +961,75 @@
       color: var(--input-text);
       font-size: 0.92rem;
       outline: none;
+      transition: all var(--transition-fast);
     }
+
+    .blog-search-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
     .blog-filter-pills {
       display: flex;
+      align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
+
     .blog-filter-btn {
       padding: 0.5rem 1.1rem;
       border-radius: var(--radius-full);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-body);
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--chip-bg);
       border: 1px solid var(--border-subtle);
-      cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all var(--transition-fast);
     }
+
+    .blog-filter-btn:hover {
+      color: var(--text-white);
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
+
     .blog-filter-btn.active {
       background: var(--accent-gradient);
       color: #FFFFFF;
       border-color: transparent;
+      box-shadow: 0 4px 15px var(--accent-glow);
     }
 
-    /* Grid & Cards */
+    .blog-create-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-full);
+      background: var(--accent-gradient);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.92rem;
+      box-shadow: 0 4px 18px var(--accent-glow);
+      transition: all var(--transition-normal);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .blog-create-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 25px var(--accent-glow);
+    }
+
+    /* ==========================================================================
+       BLOG CARDS & GRID
+       ========================================================================== */
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 2.2rem;
-      margin-bottom: 5rem;
+      margin-bottom: 4rem;
     }
+
     .blog-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -386,55 +1037,101 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      position: relative;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
       backdrop-filter: blur(12px);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
     }
+
     .blog-card:hover {
       border-color: var(--border-accent);
-      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4), 0 0 25px var(--accent-glow);
+      transform: translateY(-6px);
     }
+
     .blog-card-img-wrap {
+      position: relative;
       width: 100%;
       height: 220px;
       overflow: hidden;
-      background: #0B0F1A;
+      background: var(--bg-secondary);
     }
+
     .blog-card-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .blog-card:hover .blog-card-img {
-      transform: scale(1.06);
+      transform: scale(1.08);
     }
+
+    .blog-card-category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(11, 15, 26, 0.85);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
+
+    .blog-badge-user {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+      z-index: 2;
+    }
+
     .blog-card-body {
       padding: 1.6rem;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
-    .blog-meta-clean {
+
+    .blog-meta-row {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1rem;
       font-size: 0.82rem;
       color: var(--text-muted);
       margin-bottom: 0.85rem;
     }
+
+    .blog-meta-row span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
     .blog-card-title {
       font-size: 1.25rem;
       font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.35;
       margin-bottom: 0.85rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      cursor: pointer;
+      transition: color var(--transition-fast);
     }
+
     .blog-card:hover .blog-card-title {
       color: var(--accent-cyan);
     }
+
     .blog-card-excerpt {
       font-size: 0.92rem;
       color: var(--text-body);
@@ -446,35 +1143,115 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+
     .blog-card-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding-top: 1.2rem;
       border-top: 1px solid var(--border-subtle);
+      margin-top: auto;
     }
 
-    /* Modal Backdrop */
+    .blog-author-info {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .blog-author-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-accent);
+    }
+
+    .blog-author-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .blog-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .blog-read-btn {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform var(--transition-fast);
+    }
+
+    .blog-card:hover .blog-read-btn {
+      transform: translateX(4px);
+    }
+
+    .blog-delete-btn {
+      color: #EF4444;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: var(--radius-sm);
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      transition: all var(--transition-fast);
+    }
+
+    .blog-delete-btn:hover {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+
+    /* 3D Tilt Glare Overlay */
+    .tilt-glare {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+      border-radius: inherit;
+      z-index: 5;
+    }
+
+    /* ==========================================================================
+       MODALS (COMPOSER & READER)
+       ========================================================================== */
     .modal-backdrop {
       position: fixed;
-      inset: 0;
-      background: rgba(6, 9, 16, 0.88);
-      backdrop-filter: blur(16px);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 8, 16, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity var(--transition-normal);
       padding: 1.5rem;
     }
+
     .modal-backdrop.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .modal-box {
-      background: var(--modal-box-bg);
+      background: var(--modal-bg);
       border: 1px solid var(--border-accent);
       border-radius: var(--radius-xl);
       padding: 2.5rem;
@@ -483,25 +1260,59 @@
       max-height: 90vh;
       overflow-y: auto;
       position: relative;
+      transform: scale(0.92) translateY(20px);
+      transition: transform var(--transition-normal);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
     }
+
+    .modal-backdrop.active .modal-box {
+      transform: scale(1) translateY(0);
+    }
+
     .modal-close-btn {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
+      background: var(--chip-bg);
       border: 1px solid var(--border-subtle);
       color: var(--text-white);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.1rem;
+      transition: all var(--transition-fast);
       cursor: pointer;
     }
-    .form-group { margin-bottom: 1.4rem; }
-    .form-group-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.45rem; }
+
+    .modal-close-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #EF4444;
+      border-color: #EF4444;
+      transform: rotate(90deg);
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 0.45rem;
+    }
+
     .form-input, .form-select, .form-textarea {
       width: 100%;
       padding: 0.85rem 1.15rem;
@@ -512,183 +1323,469 @@
       font-family: inherit;
       font-size: 0.95rem;
       outline: none;
+      transition: all var(--transition-fast);
     }
-    .form-select option {
-      background: var(--bg-secondary);
-      color: var(--text-white);
-    }
+
     .form-input:focus, .form-select:focus, .form-textarea:focus {
       border-color: var(--accent-cyan);
       box-shadow: 0 0 15px var(--cyan-glow);
     }
 
+    .preset-img-chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .preset-chip {
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .preset-chip:hover {
+      background: var(--pill-bg);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Toast Notification */
+    #toast-notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--bg-glass-nav-scrolled);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.5rem;
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all var(--transition-normal);
+      pointer-events: none;
+    }
+
+    #toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Back to Top */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 800;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: all var(--transition-normal);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #back-to-top:hover {
+      background: var(--accent-gradient);
+      color: #FFFFFF;
+      transform: translateY(-4px);
+    }
+
+    /* Footer */
     footer.site-footer {
-      background: var(--bg-footer);
+      background: var(--footer-bg);
       border-top: 1px solid var(--border-subtle);
-      padding: 4rem 0 2rem;
+      padding: 4.5rem 0 2rem;
       margin-top: auto;
     }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-white);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-body);
+      font-size: 0.92rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-cyan);
+      transform: translateX(4px);
+      display: inline-block;
+    }
+
     .footer-bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
       font-size: 0.88rem;
       color: var(--text-muted);
       flex-wrap: wrap;
       gap: 1rem;
     }
 
-    /* Toast */
-    #toast-notification {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-accent);
-      border-radius: var(--radius-lg);
-      padding: 0.9rem 1.5rem;
-      color: var(--text-white);
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      z-index: 3000;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-    #toast-notification.show {
-      transform: translateY(0);
-      opacity: 1;
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .blog-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .blog-stats-bar { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
-      .form-group-row { grid-template-columns: 1fr; }
+      header.site-header {
+        padding: 0.65rem 0;
+        pointer-events: auto;
+      }
+
+      .nav-container {
+        border-radius: 16px;
+        padding: 0.6rem 0.95rem;
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+        width: auto;
+      }
+
+      .nav-links, .nav-actions .btn {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .mobile-drawer {
+        display: block;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .blog-action-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="ambient-glow" style="top: 10%; left: -10%; background: var(--accent-violet);"></div>
-  <div class="ambient-glow" style="top: 50%; right: -10%; background: var(--accent-cyan);"></div>
 
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-violet" style="top: 5%; left: -10%;"></div>
+  <div class="ambient-glow glow-cyan" style="top: 40%; right: -15%;"></div>
+  <div class="ambient-glow glow-violet" style="top: 80%; left: -10%;"></div>
+
+  <!-- ==========================================================================
+       STICKY GLASS-EFFECT HEADER & NAVIGATION
+       ========================================================================== -->
   <header class="site-header" id="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-logo" aria-label="Aruva Webster">
-        <svg width="36" height="36" viewBox="0 0 44 44" fill="none">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="44" y2="44">
-              <stop offset="0%" stop-color="#7C5CFF" />
-              <stop offset="100%" stop-color="#22D3EE" />
-            </linearGradient>
-          </defs>
-          <rect width="44" height="44" rx="12" fill="url(#g)" />
-          <path d="M12 28L18 14L22 22M22 22L26 14L32 28" stroke="#FFFFFF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M16 23.5H28" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" />
-          <circle cx="22" cy="22" r="2.25" fill="#22D3EE" />
-        </svg>
-        <span>Aruva<span class="brand-accent">Webster</span></span>
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Aruva Webster — Digital Studio Home">
+        <div class="logo-mark">
+          <div class="logo-mark-glow" aria-hidden="true"></div>
+          <svg class="logo-mark-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="logoBgGradBlog" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7C5CFF" />
+                <stop offset="50%" stop-color="#4F46E5" />
+                <stop offset="100%" stop-color="#22D3EE" />
+              </linearGradient>
+              <linearGradient id="logoSheenGradBlog" x1="0" y1="0" x2="44" y2="22" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="logoCoreGradBlog" x1="8" y1="8" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="100%" stop-color="#E0E7FF" />
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#logoBgGradBlog)" />
+            <rect x="3" y="3" width="38" height="38" rx="11" fill="none" stroke="url(#logoSheenGradBlog)" stroke-width="1.5" />
+            <path d="M12 28L18 14L22 22" stroke="url(#logoCoreGradBlog)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M22 22L26 14L32 28" stroke="url(#logoCoreGradBlog)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M16 23.5H28" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="22" cy="22" r="2.25" fill="#22D3EE" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">
+            <span class="brand-primary">Aruva</span>
+            <span class="brand-accent">Webster</span>
+          </span>
+          <span class="brand-tagline">Studio &bull; Engineering</span>
+        </div>
+        <span class="brand-status-indicator" title="Available for new client projects">
+          <span class="status-pulse-dot"></span>
+        </span>
       </a>
 
-      <nav>
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#work">Work</a></li>
           <li><a href="index.html#process">Process</a></li>
           <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <button class="theme-toggle-btn" id="theme-toggle-nav" role="switch" aria-label="Toggle theme">
-          <span class="theme-toggle-thumb"></span>
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Switch -->
+        <button class="theme-toggle-btn" id="theme-toggle-nav" role="switch" aria-checked="false" aria-label="Toggle between dark and light mode" title="Toggle theme">
+          <span class="theme-toggle-track">
+            <i class="fa-solid fa-moon track-icon moon" aria-hidden="true"></i>
+            <i class="fa-solid fa-sun track-icon sun" aria-hidden="true"></i>
+            <span class="theme-toggle-thumb">
+              <i class="fa-solid fa-moon thumb-icon" aria-hidden="true"></i>
+            </span>
+          </span>
         </button>
-        <button class="btn btn-primary" onclick="openBlogComposer()">
+
+        <button class="btn btn-primary header-cta-btn" onclick="openBlogComposer()">
           <i class="fa-solid fa-pen-nib"></i>
-          <span>Write Entry</span>
+          <span>Write Post</span>
+        </button>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
         </button>
       </div>
     </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul class="mobile-nav-list">
+        <li>
+          <a href="index.html" class="mobile-nav-link">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-house link-icon"></i> Home</span>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#services" class="mobile-nav-link">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-layer-group link-icon"></i> Services</span>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#work" class="mobile-nav-link">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-briefcase link-icon"></i> Work</span>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#process" class="mobile-nav-link">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-route link-icon"></i> Process</span>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="blog.html" class="mobile-nav-link" style="color: var(--accent-cyan);">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-newspaper link-icon" style="color: var(--accent-cyan);"></i> Blog</span>
+            <i class="fa-solid fa-chevron-right arrow-icon" style="color: var(--accent-cyan); opacity: 1;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#testimonials" class="mobile-nav-link">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-star link-icon"></i> Reviews</span>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#contact" class="mobile-nav-link">
+            <span class="mobile-nav-link-content"><i class="fa-solid fa-envelope link-icon"></i> Contact</span>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </a>
+        </li>
+        <li class="mobile-theme-item">
+          <div class="mobile-theme-box">
+            <span class="mobile-theme-label">Theme Mode: <strong id="mobile-theme-text">Dark</strong></span>
+            <button class="theme-toggle-btn" id="theme-toggle-mobile" role="switch" aria-checked="false" aria-label="Toggle between dark and light mode" title="Toggle theme">
+              <span class="theme-toggle-track">
+                <i class="fa-solid fa-moon track-icon moon" aria-hidden="true"></i>
+                <i class="fa-solid fa-sun track-icon sun" aria-hidden="true"></i>
+                <span class="theme-toggle-thumb">
+                  <i class="fa-solid fa-moon thumb-icon" aria-hidden="true"></i>
+                </span>
+              </span>
+            </button>
+          </div>
+        </li>
+        <li class="mobile-drawer-cta">
+          <button class="btn btn-primary" onclick="openBlogComposer(); closeMobileMenu();">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>Write New Post</span>
+          </button>
+        </li>
+      </ul>
+      <a href="mailto:aruvawebster@gmail.com" class="mobile-drawer-contact">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>aruvawebster@gmail.com</span>
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section class="blog-hero">
-      <div class="container">
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem;">
+  <!-- ==========================================================================
+       BLOG HERO SECTION
+       ========================================================================== -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="blog-hero-content">
+        <div class="badge-pill">
           <i class="fa-solid fa-newspaper"></i>
-          <span>Digital Craft & Architecture</span>
+          <span>Agency Knowledge & Insights</span>
         </div>
         <h1 class="blog-hero-title">
-          Engineering <span class="gradient-text">Insights</span> & Dispatches
+          The Aruva Webster <span class="gradient-text">Blog</span>
         </h1>
         <p class="blog-hero-subtitle">
-          In-depth technical guides, conversion optimization studies, and design strategies from the Aruva Webster engineering team.
+          Proven web engineering architectures, conversion benchmarks, and bespoke UI/UX guides written by our team. You can write, publish, and manage your own articles below.
         </p>
 
+        <!-- Quick Stats Bar -->
         <div class="blog-stats-bar">
-          <div>
-            <div class="blog-stat-val" id="total-articles-count">4</div>
-            <div class="blog-stat-lbl">Published Articles</div>
+          <div class="blog-stat-item">
+            <div class="blog-stat-num" id="total-articles-count">6</div>
+            <div class="blog-stat-label">Published Articles</div>
           </div>
-          <div>
-            <div class="blog-stat-val" id="user-articles-count">0</div>
-            <div class="blog-stat-lbl">Custom Community Entries</div>
+          <div class="blog-stat-item">
+            <div class="blog-stat-num" id="user-articles-count">0</div>
+            <div class="blog-stat-label">Your Custom Posts</div>
           </div>
-          <div>
-            <div class="blog-stat-val">100%</div>
-            <div class="blog-stat-lbl">Open Access Knowledge</div>
+          <div class="blog-stat-item">
+            <div class="blog-stat-num">5 Min</div>
+            <div class="blog-stat-label">Avg. Reading Time</div>
+          </div>
+          <div class="blog-stat-item">
+            <div class="blog-stat-num">100%</div>
+            <div class="blog-stat-label">Open Source Knowledge</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- ==========================================================================
+       BLOG CONTROLS & ARTICLE GRID
+       ========================================================================== -->
+  <main class="blog-controls-section">
     <div class="container">
+      <!-- Search, Categories & Write Action Bar -->
       <div class="blog-action-bar">
         <div class="blog-search-box">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" class="blog-search-input" id="blog-search" placeholder="Search by topic, keyword, or title..." oninput="filterBlogPosts()" />
+          <input type="text" class="blog-search-input" id="blog-search" placeholder="Search articles by title, topic, or keyword..." oninput="filterBlogPosts()">
         </div>
+
         <div class="blog-filter-pills" id="blog-category-filters">
           <button class="blog-filter-btn active" data-cat="all" onclick="setBlogCategory('all')">All Articles</button>
           <button class="blog-filter-btn" data-cat="Web Design" onclick="setBlogCategory('Web Design')">Web Design</button>
           <button class="blog-filter-btn" data-cat="WordPress" onclick="setBlogCategory('WordPress')">WordPress</button>
-          <button class="blog-filter-btn" data-cat="E-commerce" onclick="setBlogCategory('E-commerce')">E-Commerce</button>
+          <button class="blog-filter-btn" data-cat="E-commerce" onclick="setBlogCategory('E-commerce')">E-commerce</button>
           <button class="blog-filter-btn" data-cat="Performance" onclick="setBlogCategory('Performance')">Performance</button>
         </div>
-        <button class="btn btn-primary btn-small" onclick="openBlogComposer()">
-          <i class="fa-solid fa-feather"></i>
-          <span>Compose Post</span>
+
+        <button class="blog-create-btn" onclick="openBlogComposer()">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>Write New Post</span>
         </button>
       </div>
 
+      <!-- Dynamic Blog Grid -->
       <div class="blog-grid" id="blog-grid">
         <!-- Rendered by JavaScript -->
       </div>
     </div>
   </main>
 
-  <!-- Composer Modal -->
+  <!-- ==========================================================================
+       MODAL 1: WRITE & PUBLISH BLOG ENTRY COMPOSER
+       ========================================================================== -->
   <div class="modal-backdrop" id="blog-composer-modal" onclick="closeBlogComposerOnBackdrop(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close-btn" onclick="closeBlogComposer()" aria-label="Close">
+      <button class="modal-close-btn" onclick="closeBlogComposer()" aria-label="Close composer">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 0.5rem;">
-        Publish to Aruva Webster
+
+      <div class="badge-pill" style="margin-bottom: 0.8rem;">
+        <i class="fa-solid fa-feather-pointed"></i>
+        <span>Agency Creator Studio</span>
       </div>
-      <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Write an Engineering Article</h2>
+      <h2 style="font-size: 1.85rem; margin-bottom: 0.4rem; color: var(--text-white);">Write a New Blog Entry</h2>
       <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.8rem;">
-        Your submission will persist in local storage and be immediately readable across all pages.
+        Draft and publish insights, tutorials, or agency updates. Posts are saved permanently in local storage and display immediately in the grid.
       </p>
 
       <form id="blog-composer-form" onsubmit="handlePublishPost(event)">
         <div class="form-group">
           <label class="form-label" for="post-title">Article Title *</label>
-          <input class="form-input" type="text" id="post-title" placeholder="e.g. Next-Gen WordPress Architectures" required />
+          <input class="form-input" type="text" id="post-title" placeholder="e.g. Next-Gen WordPress: Headless Architectures with Edge Rendering" required>
         </div>
 
         <div class="form-group-row">
@@ -697,52 +1794,54 @@
             <select class="form-select" id="post-category" required>
               <option value="Web Design">Web Design & UI/UX</option>
               <option value="WordPress" selected>WordPress & CMS</option>
-              <option value="E-commerce">E-Commerce & Storefronts</option>
+              <option value="E-commerce">E-commerce & Stores</option>
               <option value="Performance">Performance & SEO</option>
+              <option value="Technical Insights">Technical Insights</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="post-read-time">Estimated Reading Time</label>
-            <input class="form-input" type="text" id="post-read-time" value="5 min read" />
+            <label class="form-label" for="post-read-time">Estimated Read Time</label>
+            <input class="form-input" type="text" id="post-read-time" placeholder="e.g. 5 min read" value="5 min read">
           </div>
         </div>
 
         <div class="form-group-row">
           <div class="form-group">
             <label class="form-label" for="post-author">Author Name</label>
-            <input class="form-input" type="text" id="post-author" value="Aruva Webster Contributor" />
+            <input class="form-input" type="text" id="post-author" placeholder="e.g. Aruva Webster Team" value="Aruva Webster Team">
           </div>
           <div class="form-group">
             <label class="form-label" for="post-tags">Tags (comma-separated)</label>
-            <input class="form-input" type="text" id="post-tags" placeholder="e.g. Architecture, Speed, Next.js" />
+            <input class="form-input" type="text" id="post-tags" placeholder="e.g. WebDesign, React, Performance">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="post-image">Banner Graphic</label>
-          <select class="form-select" id="post-image">
-            <option value="/src/assets/images/hero_web_showcase_1791626594971.jpg">Next-Gen Interface Showcase (Obsidian/Neon)</option>
-            <option value="/src/assets/images/saas_analytics_mockup_1791626650922.jpg">SaaS Analytics & Cloud Telemetry</option>
-            <option value="/src/assets/images/architecture_portfolio_mockup_1791626640093.jpg">Editorial Architecture & Monolith Grid</option>
-            <option value="/src/assets/images/skincare_ecommerce_mockup_1791626626599.jpg">Luxury Travertine Retail Storefront</option>
-            <option value="/src/assets/images/fintech_portal_mockup_1791626610847.jpg">Fintech Wealth Management Platform</option>
-          </select>
+          <label class="form-label" for="post-image">Cover Image URL</label>
+          <input class="form-input" type="url" id="post-image" placeholder="https://picsum.photos/id/180/800/500" value="https://picsum.photos/id/180/800/500">
+          <div class="preset-img-chips">
+            <span style="font-size: 0.78rem; color: var(--text-muted); align-self: center;">Quick Presets:</span>
+            <button type="button" class="preset-chip" onclick="setPresetImage('https://picsum.photos/id/180/800/500')">Workspace & Code</button>
+            <button type="button" class="preset-chip" onclick="setPresetImage('https://picsum.photos/id/60/800/500')">Futuristic Screen</button>
+            <button type="button" class="preset-chip" onclick="setPresetImage('https://picsum.photos/id/20/800/500')">Modern Office</button>
+            <button type="button" class="preset-chip" onclick="setPresetImage('https://picsum.photos/id/106/800/500')">Product Studio</button>
+          </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="post-excerpt">Article Summary *</label>
-          <textarea class="form-textarea" id="post-excerpt" rows="2" style="min-height: 70px;" placeholder="Brief overview for the card preview..." required></textarea>
+          <label class="form-label" for="post-excerpt">Short Excerpt / Teaser *</label>
+          <textarea class="form-textarea" id="post-excerpt" rows="2" style="min-height: 75px;" placeholder="A compelling 1-2 sentence summary for preview cards..." required></textarea>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="post-content">Full Body Content *</label>
-          <textarea class="form-textarea" id="post-content" rows="6" style="min-height: 160px;" placeholder="Full article body..." required></textarea>
+          <label class="form-label" for="post-content">Full Article Content *</label>
+          <textarea class="form-textarea" id="post-content" rows="7" style="min-height: 180px;" placeholder="Write your full article body here. Paragraphs and bullet points are preserved automatically..." required></textarea>
         </div>
 
         <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
           <button type="button" class="btn btn-secondary" onclick="closeBlogComposer()">Cancel</button>
           <button type="submit" class="btn btn-primary">
-            <span>Publish Article</span>
+            <span>Publish Entry</span>
             <i class="fa-solid fa-paper-plane"></i>
           </button>
         </div>
@@ -750,201 +1849,493 @@
     </div>
   </div>
 
-  <!-- Reader Modal -->
+  <!-- ==========================================================================
+       MODAL 2: FULL ARTICLE READER
+       ========================================================================== -->
   <div class="modal-backdrop" id="blog-reader-modal" onclick="closeBlogReaderOnBackdrop(event)">
-    <div class="modal-box" onclick="event.stopPropagation()" style="max-width: 800px;">
-      <button class="modal-close-btn" onclick="closeBlogReader()" aria-label="Close">
+    <div class="modal-box" onclick="event.stopPropagation()" style="max-width: 820px;">
+      <button class="modal-close-btn" onclick="closeBlogReader()" aria-label="Close article">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <div style="margin-bottom: 1rem;">
-        <span style="color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; font-size: 0.85rem;" id="reader-category">Web Design</span>
-        <span style="margin-left: 0.8rem; font-size: 0.85rem; color: var(--text-muted);" id="reader-date-read">Oct 8, 2026 · 5 min read</span>
+
+      <div style="margin-bottom: 1.25rem;">
+        <span class="badge-pill" id="reader-category">Web Design</span>
+        <span style="margin-left: 0.8rem; font-size: 0.85rem; color: var(--text-muted);" id="reader-date-read">Oct 9, 2026 • 5 min read</span>
       </div>
-      <h1 id="reader-title" style="font-size: clamp(1.8rem, 3.5vw, 2.3rem); line-height: 1.25; margin-bottom: 1.25rem;">Article Title</h1>
-      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;">
-        <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--accent-gradient); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 700;">AW</div>
+
+      <h1 id="reader-title" style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.25; margin-bottom: 1.5rem; color: var(--text-white);">Article Title</h1>
+
+      <div class="blog-author-info" style="margin-bottom: 2rem;">
+        <img class="blog-author-avatar" id="reader-author-avatar" src="https://picsum.photos/id/1025/100/100" alt="Author">
         <div>
-          <div style="font-size: 0.92rem; font-weight: 600; color: var(--text-white);" id="reader-author-name">Aruva Webster Team</div>
-          <div style="font-size: 0.78rem; color: var(--accent-cyan);">Verified Contributor</div>
+          <div class="blog-author-name" id="reader-author-name" style="font-size: 0.95rem;">Aruva Webster Team</div>
+          <div style="font-size: 0.78rem; color: var(--accent-cyan);">Verified Agency Contributor</div>
         </div>
       </div>
-      <div style="width: 100%; height: 300px; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--border-subtle); background: #0B0F1A;">
-        <img id="reader-image" src="" alt="Banner" style="width: 100%; height: 100%; object-fit: cover;" />
+
+      <div style="width: 100%; height: 320px; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--border-subtle);">
+        <img id="reader-image" src="" alt="Article Banner" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div id="reader-content" style="color: var(--text-body); font-size: 1.05rem; line-height: 1.85; margin-bottom: 2rem; white-space: pre-line;"></div>
-      <div id="reader-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); margin-bottom: 2rem;"></div>
-      <div style="display: flex; justify-content: space-between; align-items: center;">
+
+      <div id="reader-content" style="color: var(--text-body); font-size: 1.05rem; line-height: 1.85; margin-bottom: 2rem; white-space: pre-line;">
+        <!-- Formatted article text -->
+      </div>
+
+      <div id="reader-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); margin-bottom: 2rem;">
+        <!-- Tag pills -->
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <button class="btn btn-secondary" onclick="closeBlogReader()">
           <i class="fa-solid fa-arrow-left"></i>
           <span>Back to Articles</span>
         </button>
         <button class="btn btn-primary" onclick="closeBlogReader(); openBlogComposer();">
-          <i class="fa-solid fa-feather"></i>
+          <i class="fa-solid fa-pen"></i>
           <span>Write Another Entry</span>
         </button>
       </div>
     </div>
   </div>
 
+  <!-- Toast Notification -->
   <div id="toast-notification">
-    <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
-    <span id="toast-message">Success!</span>
+    <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); font-size: 1.3rem;"></i>
+    <span id="toast-message">Operation successful!</span>
   </div>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
   <footer class="site-footer">
-    <div class="container footer-bottom">
-      <div>&copy; <span id="current-year">2026</span> Aruva Webster Agency. All rights reserved.</div>
-      <div><a href="index.html" style="color: var(--accent-cyan);">Return to Agency Home →</a></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.2rem;" aria-label="Aruva Webster">
+            <div class="logo-mark">
+              <div class="logo-mark-glow" aria-hidden="true"></div>
+              <svg class="logo-mark-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="logoBgGradBlogFoot" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#7C5CFF" />
+                    <stop offset="50%" stop-color="#4F46E5" />
+                    <stop offset="100%" stop-color="#22D3EE" />
+                  </linearGradient>
+                  <linearGradient id="logoSheenGradBlogFoot" x1="0" y1="0" x2="44" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="logoCoreGradBlogFoot" x1="8" y1="8" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="100%" stop-color="#E0E7FF" />
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#logoBgGradBlogFoot)" />
+                <rect x="3" y="3" width="38" height="38" rx="11" fill="none" stroke="url(#logoSheenGradBlogFoot)" stroke-width="1.5" />
+                <path d="M12 28L18 14L22 22" stroke="url(#logoCoreGradBlogFoot)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M22 22L26 14L32 28" stroke="url(#logoCoreGradBlogFoot)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M16 23.5H28" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="22" cy="22" r="2.25" fill="#22D3EE" />
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">
+                <span class="brand-primary">Aruva</span>
+                <span class="brand-accent">Webster</span>
+              </span>
+              <span class="brand-tagline">Studio &bull; Engineering</span>
+            </div>
+          </a>
+          <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 320px;">
+            Aruva Webster is an elite web development studio engineering high-performance websites, WordPress systems, and bespoke digital experiences.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Agency Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#work">Selected Work</a></li>
+            <li><a href="index.html#process">Our Process</a></li>
+            <li><a href="blog.html">Blog & Insights</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Website Design</a></li>
+            <li><a href="index.html#services">WordPress Engineering</a></li>
+            <li><a href="index.html#services">E-commerce Stores</a></li>
+            <li><a href="index.html#services">Technical SEO & Speed</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:aruvawebster@gmail.com"><i class="fa-solid fa-envelope"></i> aruvawebster@gmail.com</a></li>
+            <li><a href="tel:+18005550199"><i class="fa-solid fa-phone"></i> +1 (800) 555-0199</a></li>
+            <li><a href="index.html#contact"><i class="fa-solid fa-comments"></i> Request a Quote</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Aruva Webster. All rights reserved.</p>
+        <p>Built with pure HTML, CSS, and Vanilla JavaScript.</p>
+      </div>
     </div>
   </footer>
 
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT: THEME, BLOG LOGIC, 3D TILT, LOCALSTORAGE PERSISTENCE
+       ========================================================================== -->
   <script>
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-
-    /* Theme */
+    /* ==========================================================================
+       1. THEME CONTROLLER (DARK & HIGH-CONTRAST LIGHT MODE)
+       ========================================================================== */
     const THEME_KEY = "aruva_theme";
+
+    function getInitialTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme === "light" || savedTheme === "dark") {
+        return savedTheme;
+      }
+      return "dark"; // Default dark
+    }
+
     function applyTheme(theme) {
       if (theme === "light") {
         document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem(THEME_KEY, "light");
+        updateThemeToggleUI(true);
       } else {
         document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem(THEME_KEY, "dark");
+        updateThemeToggleUI(false);
+      }
+      try {
+        localStorage.setItem(THEME_KEY, theme);
+      } catch (e) {
+        console.warn("localStorage unavailable for theme preference:", e);
       }
     }
-    function toggleTheme() {
-      const cur = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-      applyTheme(cur === "light" ? "dark" : "light");
-    }
-    document.getElementById("theme-toggle-nav")?.addEventListener("click", toggleTheme);
-    applyTheme(localStorage.getItem(THEME_KEY) || "dark");
 
-    /* Data */
+    function updateThemeToggleUI(isLight) {
+      const toggle = document.getElementById("theme-toggle-nav");
+      if (toggle) {
+        toggle.setAttribute("aria-checked", isLight ? "true" : "false");
+        toggle.setAttribute("title", isLight ? "Switch to Dark Mode" : "Switch to High-Contrast Light Mode");
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      applyTheme(newTheme);
+      showToast(newTheme === "light" ? "☀️ Switched to High-Contrast Light Mode" : "🌙 Switched to Futuristic Dark Mode");
+    }
+
+    document.getElementById("theme-toggle-nav")?.addEventListener("click", toggleTheme);
+    applyTheme(getInitialTheme());
+
+    /* ==========================================================================
+       2. SCROLL PROGRESS & STICKY HEADER
+       ========================================================================== */
+    const scrollProgressBar = document.getElementById("scroll-progress");
+    const siteHeader = document.getElementById("site-header");
+    const backToTopBtn = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (scrollProgressBar) scrollProgressBar.style.width = progress + "%";
+
+      if (siteHeader) {
+        if (scrollTop > 60) siteHeader.classList.add("scrolled");
+        else siteHeader.classList.remove("scrolled");
+      }
+
+      if (backToTopBtn) {
+        if (scrollTop > 400) backToTopBtn.classList.add("visible");
+        else backToTopBtn.classList.remove("visible");
+      }
+    }, { passive: true });
+
+    backToTopBtn?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* ==========================================================================
+       3. MOBILE NAVIGATION DRAWER
+       ========================================================================== */
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileDrawer = document.getElementById("mobile-drawer");
+    const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+    function closeMobileMenu() {
+      if (!mobileDrawer || !menuToggle) return;
+      mobileDrawer.classList.remove("open");
+      menuToggle.classList.remove("is-active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function toggleMobileMenu() {
+      if (!mobileDrawer || !menuToggle) return;
+      const isOpen = mobileDrawer.classList.toggle("open");
+      menuToggle.classList.toggle("is-active", isOpen);
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+      });
+    }
+
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (mobileDrawer && mobileDrawer.classList.contains("open") && !mobileDrawer.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileDrawer && mobileDrawer.classList.contains("open")) {
+        closeMobileMenu();
+      }
+    });
+
+    /* ==========================================================================
+       4. BLOG ARTICLES DATA & STORAGE
+       ========================================================================== */
     const defaultBlogPosts = [
       {
-        id: "post-headless-wp",
-        title: "Headless WordPress vs. Monolithic: Which Architecture Scales Better?",
+        id: "post-headless-wordpress",
+        title: "Scaling Headless WordPress with Next.js & Edge Caching",
         category: "WordPress",
         date: "Oct 8, 2026",
         readTime: "6 min read",
         author: "Marcus Vance",
-        image: "/src/assets/images/hero_web_showcase_1791626594971.jpg",
-        excerpt: "Why modern enterprises are decoupling WordPress backends and serving blazing fast Next.js frontends with edge caching.",
-        content: `Traditional monolithic WordPress combines content storage, template parsing, and server delivery on a single stack. While approachable, it often suffers from database lock-in and bloated plugin overhead.\n\nIn 2026, headless architecture has proven itself as the premier enterprise solution. By treating WordPress strictly as an API while serving static and edge-rendered frontends via Next.js or React, teams achieve:\n\n• Sub-200ms TTFB across worldwide CDN edges\n• Complete decoupling of frontend presentation from database vulnerabilities\n• The familiar, beloved Gutenberg editing experience for content creators\n\nVerdict: For businesses where Core Web Vitals and brand perception directly affect revenue, headless WordPress is unmatched.`,
-        tags: ["WordPress", "Headless", "Next.js", "Edge"]
+        authorAvatar: "https://picsum.photos/id/1025/100/100",
+        image: "https://picsum.photos/id/180/800/500",
+        excerpt: "Why decoupling WordPress frontends enables sub-100ms Core Web Vitals while giving editorial teams the familiar Gutenberg editor.",
+        content: `As web standards evolve, traditional monolithic CMS architectures often struggle to meet modern Core Web Vitals expectations. In this deep dive, we explore how decoupling WordPress using GraphQL and modern edge caching provides an unbeatable combination of editorial flexibility and raw runtime velocity.
+
+Key Benefits of Headless WordPress:
+• Sub-100ms First Contentful Paint globally via CDN edge nodes
+• Zero server-side PHP execution on client requests
+• Bulletproof security: WordPress backend is completely isolated from public traffic
+• Seamless omnichannel delivery to mobile apps, smart displays, and web platforms
+
+Implementation Strategies:
+We recommend utilizing Next.js 15 with Incremental Static Regeneration (ISR). When editors publish in WordPress, webhook triggers invalidate specific edge caches, guaranteeing immediate freshness with zero database strain.`,
+        tags: ["WordPress", "Headless", "Performance", "Gutenberg"]
       },
       {
-        id: "post-3d-microinteractions",
-        title: "The Psychology of 3D Micro-Interactions in High-Converting Websites",
+        id: "post-conversion-design",
+        title: "10 Micro-Interactions That Skyrocketed Our Clients' Conversions",
         category: "Web Design",
-        date: "Oct 5, 2026",
+        date: "Sep 29, 2026",
         readTime: "5 min read",
-        author: "Sarah Jenkins",
-        image: "/src/assets/images/saas_analytics_mockup_1791626650922.jpg",
-        excerpt: "How subtle perspective shifts, cursor-following glares, and tactile feedback increase user time-on-page and commercial trust.",
-        content: `Human perception is naturally attuned to physical lighting shifts and tactile depth. Static interfaces often read as inert and forgettable.\n\nWhen a user hovers over an interactive element and observes a subtle 8-degree perspective tilt coupled with a cursor-following light glare, their subconscious registers intentional craftsmanship.\n\nThree Principles We Enforce at Aruva Webster:\n1. Keep it subtle: Capping rotation at 8 degrees prevents vestibular fatigue.\n2. Respect accessibility: Always honor prefers-reduced-motion.\n3. Hardware acceleration: Leverage CSS transform and will-change rather than manipulating DOM layout properties.\n\nOur client metrics show an average 28% lift in card click-through rates after implementing smooth perspective tilt effects.`,
-        tags: ["UI/UX", "3D Design", "Micro-Interactions"]
-      },
-      {
-        id: "post-core-web-vitals",
-        title: "Achieving 99+ PageSpeed Scores: A Modern Technical Blueprint",
-        category: "Performance",
-        date: "Sep 28, 2026",
-        readTime: "7 min read",
         author: "Elena Rostova",
-        image: "/src/assets/images/architecture_portfolio_mockup_1791626640093.jpg",
-        excerpt: "A breakdown of asset compression, critical CSS inline extraction, edge caching, and zero layout shift design.",
-        content: `Search rankings and bounce rates are governed by three primary metrics: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS).\n\nTo consistently hit 99+:\n\n1. Lock Typography Heights:\nReserve explicit line-height and min-heights on dynamic components to eliminate layout shifts completely.\n\n2. Modern Formats with Measured Aspect Ratios:\nDeliver AVIF/WebP assets with explicit container aspect-ratios.\n\n3. Trim Unused Runtime Dependencies:\nReplace heavyweight JS plugins with native browser APIs like IntersectionObserver and CSS custom properties.\n\nTreating performance as a core architectural feature ensures top-tier organic placement.`,
-        tags: ["Core Web Vitals", "SEO", "Speed", "Performance"]
+        authorAvatar: "https://picsum.photos/id/1027/100/100",
+        image: "https://picsum.photos/id/60/800/500",
+        excerpt: "Subtle physics, magnetic hover effects, and progressive disclosure patterns that double user engagement without slowing down page load.",
+        content: `Design isn't just how something looks—it's how it responds to human touch and curiosity. Over 50+ enterprise redesigns at Aruva Webster, we tracked which interaction details produce tangible ROI.
+
+1. Magnetic Button Pull
+By calculating cursor proximity and gently translating the CTA button toward the mouse (capped at 6px), users feel an intuitive pull toward action.
+
+2. 3D Perspective Card Tilt
+Adding subtle rotationX and rotationY tracking creates spatial depth, transforming static portfolio items into tactile physical artifacts.
+
+3. Live Input Validation Badges
+Providing immediate, subtle green ticks on valid email entry prevents form drop-off before the submit button is clicked.`,
+        tags: ["UI/UX", "Micro-Interactions", "Conversion", "3D Web"]
       },
       {
-        id: "post-ecommerce-friction",
-        title: "Next-Gen E-Commerce Checkouts: Eliminating Mobile Purchase Friction",
+        id: "post-ecommerce-cwv",
+        title: "Optimizing Shopify & WooCommerce Stores for 100/100 Speed Scores",
         category: "E-commerce",
-        date: "Sep 20, 2026",
+        date: "Sep 15, 2026",
+        readTime: "7 min read",
+        author: "Sarah Jenkins",
+        authorAvatar: "https://picsum.photos/id/64/100/100",
+        image: "https://picsum.photos/id/20/800/500",
+        excerpt: "A practical technical roadmap to eliminating cumulative layout shifts, optimizing heavy product images, and deferring non-essential scripts.",
+        content: `Every 100ms delay in e-commerce page load reduces checkout conversion rates by 7%. Here is the exact audit framework we use at Aruva Webster to achieve 98+ Google PageSpeed scores across multi-thousand SKU catalogs.
+
+1. Image Delivery Hierarchy
+• Serve modern AVIF formats with WebP fallback
+• Enforce strict aspect-ratio containers to guarantee zero Cumulative Layout Shift (CLS)
+• Lazy-load everything below the fold with native browser loading="lazy"
+
+2. Script Triage
+Third-party tag managers and analytics often cause 80% of main thread blocking. Moving tracking pixels to server-side Google Tag Manager (sGTM) cuts client bundle size by over 240KB.`,
+        tags: ["E-commerce", "WooCommerce", "Core Web Vitals", "Speed"]
+      },
+      {
+        id: "post-dark-mode-accessibility",
+        title: "High-Contrast Theming: Designing Accessible Futuristic UIs",
+        category: "Web Design",
+        date: "Aug 28, 2026",
         readTime: "4 min read",
         author: "Marcus Vance",
-        image: "/src/assets/images/skincare_ecommerce_mockup_1791626626599.jpg",
-        excerpt: "One-click digital wallets, micro-animations on cart actions, and dynamic payment routing that lift mobile conversion by 35%.",
-        content: `Over 70% of e-commerce traffic originates on mobile devices, yet mobile cart abandonment historically hovers near 80% due to tedious input forms.\n\nModern conversion optimization focuses on three frictionless checkout paradigms:\n• Biometric digital wallets (Apple Pay, Google Pay, Shop Pay) reducing flows to a single touch confirmation.\n• Dynamic address validation and automated postal code lookups.\n• Real-time stock reservation feedback with subtle haptic and visual cues.\n\nEliminating checkout friction directly compounds revenue without spending an additional dollar on customer acquisition.`,
-        tags: ["Shopify", "E-Commerce", "Stripe", "Checkout"]
+        authorAvatar: "https://picsum.photos/id/1025/100/100",
+        image: "https://picsum.photos/id/106/800/500",
+        excerpt: "How to craft stunning neon glassmorphic aesthetics that strictly adhere to WCAG 2.1 AAA contrast compliance.",
+        content: `Many dark-themed websites suffer from low text contrast, making them hard to read in bright outdoor conditions or for visually impaired users.
+
+At Aruva Webster, our design system enforces:
+• Minimum 7:1 contrast ratio for all body copy
+• Electric violet (#7C5CFF) and cyan (#22D3EE) accent layers on deep dark slate (#0B0F1A)
+• Dynamic CSS custom property switching for instantaneous high-contrast light mode transitions
+• Respecting user OS preferences with 'prefers-color-scheme' and 'prefers-reduced-motion'`,
+        tags: ["Accessibility", "WCAG", "CSS Variables", "UI Design"]
+      },
+      {
+        id: "post-jamstack-seo",
+        title: "Technical SEO in 2026: Schema.org, Core Web Vitals & Crawl Budgets",
+        category: "Performance",
+        date: "Aug 12, 2026",
+        readTime: "5 min read",
+        author: "Elena Rostova",
+        authorAvatar: "https://picsum.photos/id/1027/100/100",
+        image: "https://picsum.photos/id/133/800/500",
+        excerpt: "Deep dive into search engine crawl efficiency, semantic markup, and how modern architecture boosts organic rankings.",
+        content: `Search engines in 2026 evaluate websites with user-centric performance metrics. Fast loading times and structured semantic data are table stakes for first-page rankings.
+
+Key Audit Checkpoints:
+• Valid JSON-LD Schema on all service pages and articles
+• Clean HTML5 document hierarchy (single H1, structured H2/H3s)
+• Eliminating redirect chains and dead links
+• Generating dynamic XML sitemaps updated on every post publish`,
+        tags: ["SEO", "Schema", "Performance", "Crawl Budget"]
+      },
+      {
+        id: "post-future-web-architecture",
+        title: "The Death of Bulky Frameworks: Why Vanilla JavaScript Is Back",
+        category: "Performance",
+        date: "Jul 30, 2026",
+        readTime: "6 min read",
+        author: "Aruva Webster Team",
+        authorAvatar: "https://picsum.photos/id/1012/100/100",
+        image: "https://picsum.photos/id/48/800/500",
+        excerpt: "Examining why ultra-fast agencies are returning to lightweight, zero-dependency builds that achieve instant page loads and zero bundle bloat.",
+        content: `For years, developers piled multiple megabytes of JavaScript libraries onto marketing websites simply to create carousels and smooth scroll effects.
+
+With modern browser capabilities:
+• CSS flexbox and grid replace heavy layout engines
+• IntersectionObserver replaces bulky scroll listener libraries
+• CSS custom properties enable instant theming without React Context
+• Vanilla requestAnimationFrame provides silky 60fps 3D card tilts
+
+The result is lightning-fast websites that load in under 200 milliseconds and score 100 on every audit tool.`,
+        tags: ["VanillaJS", "WebDev", "Architecture", "ZeroBloat"]
       }
     ];
 
-    const BLOG_STORAGE = "aruva_blog_posts";
+    const BLOG_STORAGE_KEY = "aruva_blog_posts";
     let currentBlogFilter = "all";
     let blogSearchQuery = "";
 
-    function getUserPosts() {
+    function getUserBlogPosts() {
       try {
-        const stored = localStorage.getItem(BLOG_STORAGE);
+        const stored = localStorage.getItem(BLOG_STORAGE_KEY);
         return stored ? JSON.parse(stored) : [];
       } catch (e) {
+        console.error("Error reading stored blog posts:", e);
         return [];
       }
     }
-    function saveUserPosts(posts) {
+
+    function saveUserBlogPosts(posts) {
       try {
-        localStorage.setItem(BLOG_STORAGE, JSON.stringify(posts));
-      } catch (e) {}
+        localStorage.setItem(BLOG_STORAGE_KEY, JSON.stringify(posts));
+      } catch (e) {
+        console.error("Error saving blog posts:", e);
+      }
     }
-    function getAllPosts() {
-      return [...getUserPosts(), ...defaultBlogPosts];
+
+    function getAllBlogPosts() {
+      const userPosts = getUserBlogPosts();
+      return [...userPosts, ...defaultBlogPosts];
     }
 
     function renderBlogPosts() {
-      const grid = document.getElementById("blog-grid");
-      if (!grid) return;
-      const all = getAllPosts();
-      const userCount = getUserPosts().length;
+      const blogGrid = document.getElementById("blog-grid");
+      if (!blogGrid) return;
 
-      document.getElementById("total-articles-count").textContent = all.length;
-      document.getElementById("user-articles-count").textContent = userCount;
+      const allPosts = getAllBlogPosts();
+      const userPosts = getUserBlogPosts();
 
-      const filtered = all.filter(p => {
-        const matchesCat = currentBlogFilter === "all" || p.category.toLowerCase() === currentBlogFilter.toLowerCase();
+      // Update stats counters
+      const totalCountElem = document.getElementById("total-articles-count");
+      const userCountElem = document.getElementById("user-articles-count");
+      if (totalCountElem) totalCountElem.textContent = allPosts.length;
+      if (userCountElem) userCountElem.textContent = userPosts.length;
+
+      const filtered = allPosts.filter(post => {
+        const matchesCategory = currentBlogFilter === "all" || post.category.toLowerCase() === currentBlogFilter.toLowerCase();
         const matchesSearch = !blogSearchQuery ||
-          p.title.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
-          p.excerpt.toLowerCase().includes(blogSearchQuery.toLowerCase());
-        return matchesCat && matchesSearch;
+          post.title.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
+          post.excerpt.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
+          (post.tags && post.tags.some(t => t.toLowerCase().includes(blogSearchQuery.toLowerCase())));
+        return matchesCategory && matchesSearch;
       });
 
       if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1.5rem; background: var(--bg-card); border-radius: var(--radius-xl); border: 1px dashed var(--border-accent);">
-            <i class="fa-solid fa-file-circle-question" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-white);">No Matching Articles</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Try adjusting your search criteria or category filter.</p>
+        blogGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1.5rem; background: var(--bg-card); border-radius: var(--radius-xl); border: 1px dashed var(--border-accent);">
+            <i class="fa-solid fa-file-circle-question" style="font-size: 2.8rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--text-white);">No Blog Posts Found</h3>
+            <p style="color: var(--text-body); max-width: 420px; margin: 0 auto 1.5rem;">Try adjusting your search query or category filter, or write a new post to get started!</p>
             <button class="btn btn-secondary btn-small" onclick="resetBlogFilters()">Reset Filters</button>
           </div>
         `;
         return;
       }
 
-      grid.innerHTML = filtered.map(post => `
-        <article class="blog-card">
-          <div class="blog-card-img-wrap" onclick="openBlogReader('${post.id}')" style="cursor: pointer;">
-            <img class="blog-card-img" src="${post.image}" alt="${escapeHtml(post.title)}" loading="lazy" />
+      blogGrid.innerHTML = filtered.map(post => `
+        <article class="tilt-card blog-card" id="blog-card-${post.id}">
+          <div class="tilt-glare"></div>
+          <div class="blog-card-img-wrap" onclick="openBlogReader('${post.id}')">
+            <span class="blog-card-category">${escapeHtml(post.category)}</span>
+            ${post.isUserPost ? '<span class="blog-badge-user"><i class="fa-solid fa-star"></i> Your Post</span>' : ''}
+            <img class="blog-card-img" src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="lazy">
           </div>
           <div class="blog-card-body">
-            <div class="blog-meta-clean">
-              <span style="color: var(--accent-cyan); font-weight: 600;">${escapeHtml(post.category)}</span>
-              <span>·</span>
-              <span>${escapeHtml(post.date)}</span>
-              <span>·</span>
-              <span>${escapeHtml(post.readTime || '5 min read')}</span>
+            <div class="blog-meta-row">
+              <span><i class="fa-regular fa-calendar"></i> ${escapeHtml(post.date)}</span>
+              <span><i class="fa-regular fa-clock"></i> ${escapeHtml(post.readTime || '5 min read')}</span>
             </div>
             <h3 class="blog-card-title" onclick="openBlogReader('${post.id}')">${escapeHtml(post.title)}</h3>
             <p class="blog-card-excerpt">${escapeHtml(post.excerpt)}</p>
             <div class="blog-card-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-highlight);">${escapeHtml(post.author)}</span>
-              <div style="display: flex; gap: 0.6rem;">
+              <div class="blog-author-info">
+                <img class="blog-author-avatar" src="${escapeHtml(post.authorAvatar || 'https://picsum.photos/id/1025/100/100')}" alt="${escapeHtml(post.author)}">
+                <span class="blog-author-name">${escapeHtml(post.author)}</span>
+              </div>
+              <div class="blog-card-actions">
                 ${post.isUserPost ? `
-                  <button class="btn btn-secondary btn-small" style="color: #EF4444; padding: 0.3rem 0.6rem;" onclick="deleteBlogPost('${post.id}', event)">
+                  <button class="blog-delete-btn" onclick="deleteBlogPost('${post.id}', event)" title="Delete this post" aria-label="Delete post">
                     <i class="fa-solid fa-trash-can"></i>
                   </button>
                 ` : ''}
-                <button class="btn btn-secondary btn-small" onclick="openBlogReader('${post.id}')">
+                <button class="blog-read-btn" onclick="openBlogReader('${post.id}')">
                   <span>Read</span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -953,25 +2344,36 @@
           </div>
         </article>
       `).join("");
+
+      init3DTilt();
     }
 
     function escapeHtml(str) {
       if (!str) return "";
-      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
 
     function setBlogCategory(cat) {
       currentBlogFilter = cat;
-      document.querySelectorAll("#blog-category-filters .blog-filter-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.getAttribute("data-cat") === cat);
+      const buttons = document.querySelectorAll("#blog-category-filters .blog-filter-btn");
+      buttons.forEach(btn => {
+        if (btn.getAttribute("data-cat") === cat) btn.classList.add("active");
+        else btn.classList.remove("active");
       });
       renderBlogPosts();
     }
+
     function filterBlogPosts() {
       const input = document.getElementById("blog-search");
       blogSearchQuery = input ? input.value.trim() : "";
       renderBlogPosts();
     }
+
     function resetBlogFilters() {
       const input = document.getElementById("blog-search");
       if (input) input.value = "";
@@ -979,43 +2381,66 @@
       setBlogCategory("all");
     }
 
-    const composerModal = document.getElementById("blog-composer-modal");
-    const readerModal = document.getElementById("blog-reader-modal");
+    /* ==========================================================================
+       5. BLOG COMPOSER & POSTING
+       ========================================================================== */
+    const blogComposerModal = document.getElementById("blog-composer-modal");
+    const blogReaderModal = document.getElementById("blog-reader-modal");
 
     function openBlogComposer() {
-      if (!composerModal) return;
-      composerModal.classList.add("active");
+      if (!blogComposerModal) return;
+      blogComposerModal.classList.add("active");
       document.body.style.overflow = "hidden";
-      setTimeout(() => document.getElementById("post-title")?.focus(), 100);
+      setTimeout(() => {
+        document.getElementById("post-title")?.focus();
+      }, 100);
     }
+
     function closeBlogComposer() {
-      if (!composerModal) return;
-      composerModal.classList.remove("active");
+      if (!blogComposerModal) return;
+      blogComposerModal.classList.remove("active");
       document.body.style.overflow = "";
     }
+
     function closeBlogComposerOnBackdrop(e) {
-      if (e.target === composerModal) closeBlogComposer();
+      if (e.target === blogComposerModal) {
+        closeBlogComposer();
+      }
+    }
+
+    function setPresetImage(url) {
+      const imgInput = document.getElementById("post-image");
+      if (imgInput) imgInput.value = url;
     }
 
     function handlePublishPost(e) {
       e.preventDefault();
+
       const title = document.getElementById("post-title").value.trim();
       const category = document.getElementById("post-category").value;
       const readTime = document.getElementById("post-read-time").value.trim() || "5 min read";
-      const author = document.getElementById("post-author").value.trim() || "Aruva Webster";
-      const image = document.getElementById("post-image").value;
+      const author = document.getElementById("post-author").value.trim() || "Aruva Webster Contributor";
+      const tagsRaw = document.getElementById("post-tags").value.trim();
+      const image = document.getElementById("post-image").value.trim() || "https://picsum.photos/id/180/800/500";
       const excerpt = document.getElementById("post-excerpt").value.trim();
       const content = document.getElementById("post-content").value.trim();
-      const tagsRaw = document.getElementById("post-tags").value.trim();
+
+      if (!title || !excerpt || !content) {
+        alert("Please fill in the title, excerpt, and article content.");
+        return;
+      }
+
       const tags = tagsRaw ? tagsRaw.split(",").map(t => t.trim()).filter(Boolean) : [category];
+      const today = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
       const newPost = {
-        id: "post-" + Date.now(),
+        id: "post-user-" + Date.now(),
         title,
         category,
-        date: new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+        date: today,
         readTime,
         author,
+        authorAvatar: "https://picsum.photos/id/1025/100/100",
         image,
         excerpt,
         content,
@@ -1023,65 +2448,147 @@
         isUserPost: true
       };
 
-      const userPosts = getUserPosts();
-      userPosts.unshift(newPost);
-      saveUserPosts(userPosts);
+      const userPosts = getUserBlogPosts();
+      userPosts.unshift(newPost); // Put newest user post first
+      saveUserBlogPosts(userPosts);
+
       closeBlogComposer();
       document.getElementById("blog-composer-form").reset();
+
+      // Reset filter so post is immediately visible
       setBlogCategory("all");
       renderBlogPosts();
-      showToast("Article published and saved!");
+
+      showToast("🎉 Blog entry published and saved successfully!");
+
+      const newCard = document.getElementById(`blog-card-${newPost.id}`);
+      if (newCard) {
+        newCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        newCard.style.boxShadow = "0 0 35px var(--cyan-glow)";
+        setTimeout(() => { newCard.style.boxShadow = ""; }, 2500);
+      }
     }
 
-    function deleteBlogPost(id, e) {
+    function deleteBlogPost(postId, e) {
       if (e) e.stopPropagation();
-      if (!confirm("Are you sure you want to delete this article?")) return;
-      const updated = getUserPosts().filter(p => p.id !== id);
-      saveUserPosts(updated);
+      if (!confirm("Are you sure you want to delete this blog post?")) {
+        return;
+      }
+      const userPosts = getUserBlogPosts();
+      const updated = userPosts.filter(p => p.id !== postId);
+      saveUserBlogPosts(updated);
       renderBlogPosts();
-      showToast("Article deleted.");
+      showToast("Blog entry deleted.");
     }
 
-    function openBlogReader(id) {
-      const all = getAllPosts();
-      const post = all.find(p => p.id === id);
-      if (!post || !readerModal) return;
-      document.getElementById("reader-category").textContent = post.category;
-      document.getElementById("reader-date-read").textContent = `${post.date} · ${post.readTime || '5 min read'}`;
+    /* ==========================================================================
+       6. BLOG ARTICLE READER MODAL
+       ========================================================================== */
+    function openBlogReader(postId) {
+      const allPosts = getAllBlogPosts();
+      const post = allPosts.find(p => p.id === postId);
+      if (!post || !blogReaderModal) return;
+
       document.getElementById("reader-title").textContent = post.title;
+      document.getElementById("reader-category").textContent = post.category;
+      document.getElementById("reader-date-read").textContent = `${post.date} • ${post.readTime || '5 min read'}`;
       document.getElementById("reader-author-name").textContent = post.author;
+      document.getElementById("reader-author-avatar").src = post.authorAvatar || "https://picsum.photos/id/1025/100/100";
       document.getElementById("reader-image").src = post.image;
-      document.getElementById("reader-image").alt = post.title;
       document.getElementById("reader-content").textContent = post.content;
-      const tagsEl = document.getElementById("reader-tags");
-      tagsEl.innerHTML = (post.tags || [post.category]).map(t => `
-        <span style="padding: 0.3rem 0.8rem; border-radius: var(--radius-full); background: var(--metric-bg); border: 1px solid var(--border-subtle); font-size: 0.8rem; color: var(--accent-cyan);">
-          #${escapeHtml(t)}
-        </span>
-      `).join("");
-      readerModal.classList.add("active");
+
+      const tagsContainer = document.getElementById("reader-tags");
+      if (tagsContainer) {
+        tagsContainer.innerHTML = (post.tags || []).map(t => `
+          <span style="padding: 0.3rem 0.8rem; border-radius: var(--radius-full); background: var(--pill-bg); border: 1px solid var(--border-accent); font-size: 0.78rem; color: var(--accent-cyan); font-weight: 600;">
+            #${escapeHtml(t)}
+          </span>
+        `).join("");
+      }
+
+      blogReaderModal.classList.add("active");
       document.body.style.overflow = "hidden";
     }
+
     function closeBlogReader() {
-      if (!readerModal) return;
-      readerModal.classList.remove("active");
+      if (!blogReaderModal) return;
+      blogReaderModal.classList.remove("active");
       document.body.style.overflow = "";
     }
+
     function closeBlogReaderOnBackdrop(e) {
-      if (e.target === readerModal) closeBlogReader();
+      if (e.target === blogReaderModal) {
+        closeBlogReader();
+      }
     }
 
+    /* ==========================================================================
+       7. 3D TILT PHYSICS (VANILLA JAVASCRIPT)
+       ========================================================================== */
+    function init3DTilt() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const tiltCards = document.querySelectorAll(".tilt-card");
+      tiltCards.forEach(card => {
+        let isHovered = false;
+        const glare = card.querySelector(".tilt-glare");
+
+        card.addEventListener("mouseenter", () => {
+          isHovered = true;
+          if (glare) glare.style.opacity = "1";
+        });
+
+        card.addEventListener("mousemove", (e) => {
+          if (!isHovered) return;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const deltaX = (x - centerX) / centerX;
+          const deltaY = (y - centerY) / centerY;
+
+          const rotateX = -deltaY * 7;
+          const rotateY = deltaX * 7;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+
+          if (glare) {
+            const glareX = (x / rect.width) * 100;
+            const glareY = (y / rect.height) * 100;
+            glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 70%)`;
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          isHovered = false;
+          card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+          if (glare) glare.style.opacity = "0";
+        });
+      });
+    }
+
+    /* ==========================================================================
+       8. TOAST NOTIFICATIONS
+       ========================================================================== */
     let toastTimeout;
     function showToast(message) {
       const toast = document.getElementById("toast-notification");
       const msg = document.getElementById("toast-message");
       if (!toast || !msg) return;
+
       msg.textContent = message;
       toast.classList.add("show");
+
       clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => { toast.classList.remove("show"); }, 3500);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3500);
     }
 
+    // Keyboard support (Escape to close modals)
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeBlogComposer();
@@ -1089,6 +2596,11 @@
       }
     });
 
+    // Initialize blog on load
+    document.addEventListener("DOMContentLoaded", () => {
+      renderBlogPosts();
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    });
     renderBlogPosts();
   </script>
 </body>

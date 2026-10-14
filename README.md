@@ -1,26 +1,20 @@
-# Aruva Webster — Next-Gen Website Development Agency
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-A modern single-page website for Aruva Webster web development agency featuring 3D tilt effects, interactive showcases, an in-browser blog studio with localStorage persistence, and responsive glassmorphism design.
+# Run and deploy your AI Studio app
 
-## Features
+This contains everything you need to run your app locally.
 
-- **Top Bar Contract**: Clean 3-zone header with brand wordmark, single-line navigation links, and primary action.
-- **Hero Section**: 3D interactive preview card with perspective tilt, cursor glare physics, and real performance metrics.
-- **Capabilities & Services**: Bento layout covering Website Design, WordPress Engineering, E-Commerce, SEO, Security, and Brand Systems.
-- **Curated Case Studies**: Filterable project gallery with modal previews for fintech, e-commerce, architecture, and SaaS platforms.
-- **Interactive Blog & Creator Studio**: Read, search, filter, write, publish, and delete blog articles with persistence in `localStorage`.
-- **Theme Switcher**: Instant switching between obsidian dark mode and high-contrast light mode with user preference preservation.
-- **Client Testimonials Carousel**: Auto-sliding testimonials slider with pause-on-hover and accessible navigation.
-- **Interactive Brief Capture**: Direct contact and discovery call submission with immediate feedback toasts.
+View your app in AI Studio: https://ai.studio/apps/2d986070-b121-4ffa-8b6c-1375298cbf93
 
-## Development
+## Run Locally
 
-```bash
-npm install
-npm run dev
-```
+**Prerequisites:**  Node.js
 
-Build for production:
-```bash
-npm run build
-```
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
